@@ -28,18 +28,20 @@ class Parcel
   end
 
   def cost_to_ship
-
     if @volume > 0 and @volume <= 33
       @cost_to_ship = 5
+      puts "Your shipping cost is $#{@cost_to_ship}."
 
     elsif @volume >= 34 and @volume <= 66
       @cost_to_ship = 10
+      puts "Your shipping cost is $#{@cost_to_ship}."
 
     elsif @volume >= 67 and @volume <= 100
       @cost_to_ship = 15
+      puts "Your shipping cost is $#{@cost_to_ship}."
 
     else
-      puts "too big!"
+      puts "I am sorry, your package is too big to ship."
     end
 
     if @weight > 25
