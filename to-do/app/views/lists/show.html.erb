@@ -1,16 +1,18 @@
 
 
 <h1> <%= @list.name %></h1>
-
-<h2> Not done tasks</h2>
+<% if @list.tasks.list_undone.length > 0%>
+  <h2> Not done tasks</h2>
+<% end %>
 <ul>
   <% @list.tasks.list_undone.each do |task| %>
     <li><a href="/tasks/<%=task.id%>/edit"><%= task.name %></a> </li>
   <% end %>
 </ul>
 
-
-<h2> Done tasks </h2>
+<% if @list.tasks.list_done.length > 0%>
+  <h2> Done tasks </h2>
+<% end %>
 
 <ul>
   <% @list.tasks.list_done.each do |task| %>
