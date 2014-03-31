@@ -1,0 +1,44 @@
+
+
+<h1> <%= @list.name %></h1>
+
+<h2> Not done tasks</h2>
+<ul>
+  <% @list.tasks.list_undone.each do |task| %>
+    <li><a href="/tasks/<%=task.id%>/edit"><%= task.name %></a> </li>
+  <% end %>
+</ul>
+
+
+<h2> Done tasks </h2>
+
+<ul>
+  <% @list.tasks.list_done.each do |task| %>
+    <li><a href="/tasks/<%=task.id%>/edit"><%= task.name %></a> </li>
+  <% end %>
+</ul>
+
+<h1>New Task</h1>
+
+
+<form action='/tasks' method='post'>
+  <label for ='task_name'>Name</label>
+  <input id ='list_id' name='list_id' type='hidden' value='<%=@list.id%>'>
+  <input id ='task_name' name='name' type='text'>
+  <button>Create Task</button>
+</form>
+
+<a href="/lists"><button>Go back!</button></a>
+</br>
+
+<a href="/lists/<%= @list.id%>/delete" data-method="delete" rel="nofollow"><button>DESTROY LIST!!</button></a>
+
+<% if @task.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @task.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+

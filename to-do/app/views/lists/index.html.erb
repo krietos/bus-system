@@ -1,0 +1,14 @@
+<h1> Lists!</h1>
+<ul>
+  <% List.all.each do |list| %>
+    <li> <a href="/lists/<%=list.id%>"><%= list.name %> </a></li>
+  <% end %>
+</ul>
+
+<h1> New List </h1>
+<form action='/lists' method='post'>
+  <label for ='list_name'>Name</label>
+  <input id ='list_name' name='name' type='text'>
+  <button>Create List</button>
+</form>
+

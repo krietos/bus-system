@@ -1,0 +1,20 @@
+<h1> <%= @task.name %></h1>
+
+
+<form action='/tasks/<%= @task.id %>' method='post'>
+  <input name='_method' type='hidden' value='patch'>
+
+  <label for ='task_name'>Name</label>
+  <input id ='task_name' name='name' type='text' value='<%= @task.name %>'>
+  </br>
+  <label for = 'task_done'> Done: </label>
+  <input id = 'task_done' name='done' type='checkbox' <% if @task.done %><%='checked'%><% end %>>
+  </br>
+  <button>Update Task</button>
+</form>
+</br>
+
+
+</br>
+<a href="/tasks/<%= @task.id%>/delete" data-method="delete" rel="nofollow"><button>DESTROY TASK!!</button></a>
+

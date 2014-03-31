@@ -1,0 +1,10 @@
+
+development:
+  adapter: postgresql
+  database: to-do_development
+
+
+test:
+  adapter: postgresql
+  database: to-do_test
+
