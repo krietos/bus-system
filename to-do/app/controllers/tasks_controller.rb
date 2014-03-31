@@ -1,15 +1,4 @@
 class TasksController < ApplicationController
-  def index
-    @tasks = Task.all
-    @task = Task.new
-    render('tasks/index.html.erb')
-  end
-
-  def new
-    @task = Task.new
-    render('tasks/new.html.erb')
-  end
-
   def create
     @list = List.find(params[:list_id])
     @task = Task.create({:name => params[:name], :done => false, :list_id => params[:list_id]})

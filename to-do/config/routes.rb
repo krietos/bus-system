@@ -8,6 +8,5 @@ ToDo::Application.routes.draw do
   match('lists', {:via => :post, :to => 'lists#create'})
   match('lists', {:via => :get, :to => 'lists#index'})
   match('lists/:id', {:via => :get, :to => 'lists#show'})
-
   match('lists/:id/delete', {:via => :delete, :to => 'lists#destroy'})
 end
