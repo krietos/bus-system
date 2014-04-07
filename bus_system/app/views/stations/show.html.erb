@@ -7,6 +7,21 @@
   <% end %>
 </ul>
 
+
+<h3>Stops:</h3>
+
+  <% @station.stops.order(:time).each do |stop| %>
+    <ul>
+    <li><%= stop.time.strftime("%l:%M%P") %>
+      <ul>
+        <li>Bus: <%=stop.bus.name %></li>
+        <li>Line: <%= stop.line.name %></li>
+      </ul>
+    </li>
+  </ul>
+  <% end %>
+
+
 <p><%= link_to "Edit station", edit_station_path, :class => "btn btn-default" %></p>
 
 

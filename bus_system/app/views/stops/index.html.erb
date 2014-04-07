@@ -1,9 +1,24 @@
 <h1>Stops!</h1>
 
-<ul>
-  <% @stops.each do |stop| %>
-    <li><a href='/stops/<%= stop.id %>'><%= stop.id %></a></li>
-  <% end %>
-</ul>
+<table class="table">
+  <tr><th>ID</th>
+      <th>Station</th>
+      <th>Line</th>
+      <th>Bus</th>
+      <th>Time</th>
+    </tr>
+    <% @stops.order(:time).each do |stop| %>
+      <tr>
+        <td><%= stop.id %></td>
+        <td><a href="/stations/<%= stop.station_id %>"><%= stop.station.name %></a></td>
+        <td><a href="/lines/<%= stop.line_id %>"><%= stop.line.name %></a></td>
+        <td><a href="/buses/<%= stop.bus_id %>"><%= stop.bus.name %></a></td>
+        <td><%= stop.time.strftime("%l:%M%P") %></td>
+      </tr>
+    <% end %>
+</table>
 
-<%= link_to "New stop", new_stop_path, :class => "btn btn-default" %>
+<p><%= link_to "New line", new_line_path, :class => "btn btn-default" %></p>
+<p><%= link_to "New station", new_station_path, :class => "btn btn-default" %></p>
+<p><%= link_to "New bus", new_bus_path, :class => "btn btn-default" %></p>
+

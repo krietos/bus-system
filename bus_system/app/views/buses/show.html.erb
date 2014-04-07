@@ -1,5 +1,9 @@
 <h1><%= @bus.name %></h1>
 
+<% if @bus.line != nil %>
+<h3>Line: <a href="/lines/<%= @bus.line.id %>"><%= @bus.line.name %></a></h3>
+<% end %>
+
 <%= link_to "Edit bus", edit_bus_path, :class => "btn btn-default" %>
 
 

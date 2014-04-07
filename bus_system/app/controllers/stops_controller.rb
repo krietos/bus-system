@@ -15,7 +15,7 @@ class StopsController < ApplicationController
     @stop = Stop.new(stop_params)
     if @stop.save
       flash[:notice] = "Stop created."
-      redirect_to stations_path
+      redirect_to lines_path
     else
       render 'new'
     end

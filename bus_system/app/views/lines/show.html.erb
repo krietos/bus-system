@@ -7,6 +7,30 @@
   <% end %>
 </ul>
 
+<h3>Buses:</h3>
+<ul>
+  <% @line.buses.each do |bus| %>
+    <li><a href="/buses/<%= bus.id %>"><%= bus.name %></a></li>
+  <% end %>
+</ul>
+
+<h3>Stops:</h3>
+
+<table class="table">
+  <tr><th>ID</th>
+      <th>Station</th>
+      <th>Bus</th>
+      <th>Time</th>
+    </tr>
+    <% @line.stops.order(:time).each do |stop| %>
+      <tr>
+        <td><%= stop.id %></td>
+        <td><a href="/stations/<%= stop.station_id %>"><%= stop.station.name %></a></td>
+        <td><a href="/buses/<%= stop.bus_id %>"><%= stop.bus.name %></a></td>
+        <td><%= stop.time.strftime("%l:%M%P") %></td>
+      </tr>
+    <% end %>
+</table>
 <p><%= link_to "Edit line", edit_line_path, :class => "btn btn-default" %></p>
 
 
