@@ -1,0 +1,9 @@
+<h1>Buses!</h1>
+
+<ul>
+  <% @buses.each do |bus| %>
+    <li><a href='/buses/<%= bus.id %>'><%= bus.name %></a></li>
+  <% end %>
+</ul>
+
+<%= link_to "New bus", new_bus_path, :class => "btn btn-default" %>
