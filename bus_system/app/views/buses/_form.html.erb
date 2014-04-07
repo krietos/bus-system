@@ -9,9 +9,7 @@
     <%= f.label :line_id %>
     <% lines_array = Line.all.map { |line| [line.name, line.id]} %>
     <% lines_array.insert(0, []) %>
-
     <%= f.select(:line_id, options_for_select(lines_array)) %>
-
   </div>
   <%= f.submit(:class => 'btn btn-primary') %>
 <% end %>

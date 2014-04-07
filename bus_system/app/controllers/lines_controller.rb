@@ -4,6 +4,7 @@ class LinesController < ApplicationController
   end
 
   def new
+    @stop = Stop.new
     @line = Line.new
   end
 
@@ -22,6 +23,7 @@ class LinesController < ApplicationController
   end
 
   def edit
+    @stop = Stop.new
     @line = Line.find(params[:id])
   end
 

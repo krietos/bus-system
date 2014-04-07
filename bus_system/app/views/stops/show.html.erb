@@ -1,11 +1,11 @@
-<h1><%= @station.name %></h1>
+<h1><%= @stop.name %></h1>
 
-<%= link_to "Edit station", edit_station_path, :class => "btn btn-default" %>
+<%= link_to "Edit stop", edit_stop_path, :class => "btn btn-default" %>
 
 
-<%= link_to "Delete station", station_path(@station),
+<%= link_to "Delete stop", stop_path(@stop),
                         :confirm => "You sure?",
                         :method => "delete",
                         :class => "btn btn-danger" %>
 
-<%= link_to "Back", stations_path, :class => "btn btn-default" %>
+<%= link_to "Back", stops_path, :class => "btn btn-default" %>

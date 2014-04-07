@@ -5,6 +5,7 @@ class StationsController < ApplicationController
 
   def new
     @station = Station.new
+    @stop = Stop.new
   end
 
   def show
@@ -23,6 +24,7 @@ class StationsController < ApplicationController
 
   def edit
     @station = Station.find(params[:id])
+    @stop = Stop.new
   end
 
   def update
